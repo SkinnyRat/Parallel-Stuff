@@ -23,7 +23,7 @@ __global__ void Trees(int N, uchar3 * DPicture, int * DCells, int COLS, int CSiz
     int RX  = (PId / COLS)  / CSize; 
     int CX  = (PId % COLS)  / CSize; 
     int CId = (RX  * CCOLS) + CX; 
-    if (PId >= N ||  CId >= CMAX) return; 
+    if (PId >= N  || CId >= CMAX) return; 
     
     atomicAdd(&DCells[CId], DPicture[PId].y); 
 }
