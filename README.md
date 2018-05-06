@@ -29,4 +29,4 @@ The adjustable parameters are the cell size (default 80 pixels), 'green' range (
 
 **NOTE**: This assumes the image is 1920x1080; larger images can cause it to crash if the # of rows > Cuda's block size. I should probably add a way to divide the block and grid sizes more automatically for weird-sized photos... 
 
-=== 
+--- 
