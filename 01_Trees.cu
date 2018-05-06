@@ -1,4 +1,4 @@
-// Compile: nvcc CV.cu -std=c++11 -lcuda -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_objdetect -lopencv_imgcodecs -o Trees 
+// Compile: nvcc 01_Trees.cu -std=c++11 -lcuda -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_objdetect -lopencv_imgcodecs -o Trees 
 #include <string> 
 #include <fstream> 
 #include <iostream> 
