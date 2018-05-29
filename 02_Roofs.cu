@@ -1,4 +1,4 @@
-// Compile: nvcc CV.cu -std=c++11 -lcuda -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_objdetect -lopencv_imgcodecs -o Roofs 
+// Compile: nvcc Roofs.cu -std=c++11 -lcuda -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_objdetect -lopencv_imgcodecs -o Roofs 
 #include <string> 
 #include <fstream> 
 #include <iostream> 
@@ -62,9 +62,9 @@ int main(int argc, char ** argv)
     { 
         DPicture.assign((uchar3*)Img.datastart, (uchar3*)Img.dataend); 
         DOutput = DPicture; 
-        int     * DPxl    = thrust::raw_pointer_cast(&DPix[0]); 
         uchar3  * DArray  = thrust::raw_pointer_cast(&DPicture[0]); 
         uchar3  * DOut    = thrust::raw_pointer_cast(&DOutput[0]); 
+        int     * DPxl    = thrust::raw_pointer_cast(&DPix[0]); 
         
         Roofs<<<(Img.rows*4)+1, (Img.cols/4)+1>>>(DPicture.size(), DArray, DOut, Img.cols, Img.rows, ZONE, DPxl); 
         
