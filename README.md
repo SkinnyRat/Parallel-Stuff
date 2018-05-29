@@ -30,3 +30,10 @@ The adjustable parameters are the cell size (default 80 pixels), 'green' range (
 **NOTE**: This assumes the image is 1920x1080; larger images can cause it to crash if the # of rows > Cuda's block size. I should probably add a way to divide the block and grid sizes more automatically for weird-sized photos... 
 
 --- 
+
+### 02. Roofs ### 
+
+![osm](https://user-images.githubusercontent.com/13679090/40649981-cd2a9106-6364-11e8-882b-f18b757d407a.jpg | width=400) 
+![output](https://user-images.githubusercontent.com/13679090/40649982-cd68d2a4-6364-11e8-8f67-c7bfaa1fe549.jpg | width=400) 
+
+---
