@@ -39,7 +39,7 @@ Map images courtesy of OpenStreetMaps. <br/>
 Roof solar areas highlighted in orange: <br/> 
 <img src="https://user-images.githubusercontent.com/13679090/40649982-cd68d2a4-6364-11e8-8f67-c7bfaa1fe549.jpg" width='600'>
 
-A current limitation is that the algorithm is limited to only 1 roof colour, so if there are spots that are not exactly the prescribed colour, the algorithm would miss it. 
+A current limitation is that the algorithm is limited to only 1 roof colour, so if there are spots that are not exactly the prescribed colour, the algorithm would miss them. 
 
 For angled roofs, the kernel would additionally need to check the gradient of the adjacent cells, that they are continuous and don't exceed regulatory angles. At the time of writing, such semantics aren't available to the OSM dataset yet. 
 
