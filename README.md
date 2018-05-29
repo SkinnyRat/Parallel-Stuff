@@ -7,7 +7,7 @@
 This tries to identify the location of trees in a satellite photo by dividing the photo into grid cells and checking how 'green' each cell is. 
 
 First it filters the green channel by applying a HSV mask: 
-![](https://user-images.githubusercontent.com/13679090/39669457-b15140e0-511e-11e8-9e07-f5862c1f5962.jpg) 
+<img src="https://user-images.githubusercontent.com/13679090/39669457-b15140e0-511e-11e8-9e07-f5862c1f5962.jpg" width='600'> 
 
 Then it checks each pixel in parallel and adds the 'green'-ness to its respective grid cell. If the sum is within a pre-defined range, that cell probably has a tree in it: 
 ``` 
