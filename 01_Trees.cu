@@ -1,4 +1,4 @@
-// Compile: nvcc 01_Trees.cu -std=c++11 -lcuda -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_objdetect -lopencv_imgcodecs -o Trees 
+// Compile: nvcc CV.cu -std=c++11 -lcuda -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_objdetect -lopencv_imgcodecs -o Trees 
 #include <string> 
 #include <fstream> 
 #include <iostream> 
@@ -23,7 +23,7 @@ __global__ void Trees(int N, uchar3 * DPicture, int * DCells, int COLS, int CSiz
     int RX  = (PId / COLS)  / CSize; 
     int CX  = (PId % COLS)  / CSize; 
     int CId = (RX  * CCOLS) + CX; 
-    if (PId >= N  || CId >= CMAX) return; 
+    if (PId >= N ||  CId >= CMAX) return; 
     
     atomicAdd(&DCells[CId], DPicture[PId].y); 
 }
@@ -91,7 +91,7 @@ int main(int argc, char ** argv)
                     File << "-"; 
                 if ((T+1)%(Img.cols/CELL) == 0) File << "\n"; 
             }
-            imwrite(Fname + ".jpg", Img); 
+            cv::imwrite(Fname + ".jpg", Img); 
         } 
     }
     return 0; 
