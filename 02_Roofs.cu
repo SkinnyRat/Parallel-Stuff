@@ -10,9 +10,9 @@
 #include <thrust/host_vector.h> 
 #include <thrust/device_vector.h> 
 
+
 __device__ uchar3 BBGR   = {208,208,208};    // Building colour. 
 __device__ uchar3 Orange = {80,127,255};     // Solar orange. 
-
 
 __global__ void Roofs(int N, uchar3 * DPicture, uchar3 * DOut, int COLS, int ROWS, int ZONE, int * DPixels) 
 {
@@ -62,16 +62,16 @@ int main(int argc, char ** argv)
     { 
         DPicture.assign((uchar3*)Img.datastart, (uchar3*)Img.dataend); 
         DOutput = DPicture; 
+        int     * DPxl    = thrust::raw_pointer_cast(&DPix[0]); 
         uchar3  * DArray  = thrust::raw_pointer_cast(&DPicture[0]); 
         uchar3  * DOut    = thrust::raw_pointer_cast(&DOutput[0]); 
-        int     * DPxl    = thrust::raw_pointer_cast(&DPix[0]); 
         
         Roofs<<<(Img.rows*4)+1, (Img.cols/4)+1>>>(DPicture.size(), DArray, DOut, Img.cols, Img.rows, ZONE, DPxl); 
         
         thrust::copy(DOutput.begin(), DOutput.end(), Output.begin()); 
         cv::Mat Dest(Img.rows, Img.cols, CV_8UC3, (void*)&Output[0]); 
         cv::imwrite("Output.jpg", Dest); 
-        std::cout << "Total solar area available = " << DPix[0] << " pixels. \n"; 
+        std::cout << "Total solar area available  = " << static_cast<int>(DPix[0]*100/(Img.cols*Img.rows)) << " %. \n"; 
     } 
     return 0; 
 }
