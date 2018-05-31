@@ -1,10 +1,11 @@
-## Parallel-Stuff ## 
-###### Stuff that uses parallel algorithms that can be executed on GPUs or similar hardware. ###### 
+<h2> Parallel-Stuff </h2>  
+<h6> Stuff that uses parallel algorithms that can be executed on GPUs or similar hardware. </h6> 
 
 Dependencies: Cuda, OpenCV. 
+
 --- 
 
-### 01. Tree Locations ### 
+### 01. Tree Locations 
 
 This tries to identify the location of trees in a satellite photo by dividing the photo into grid cells and checking how 'green' each cell is. 
 
@@ -33,7 +34,7 @@ The adjustable parameters are the cell size (default 80 pixels), 'green' range (
 
 --- 
 
-### 02. Solar Roofs ### 
+### 02. Solar Roofs 
 
 This tries to determine the total roof area available for solar panel installations in a neighbourhood, and takes into account a fire safety regulation that prescribes a walking buffer between the panels and the edge of the roof. <br/>
 _Map images from OpenStreetMaps._ <br/> 
@@ -46,4 +47,3 @@ A current limitation is that the algorithm is limited to only 1 roof colour, so 
 For angled roofs, the kernel would additionally need to check the gradient of the adjacent cells, that they are continuous and don't exceed regulatory angles. At the time of writing, such semantics aren't available to the OSM dataset yet. 
 
 ---
-
