@@ -1,7 +1,7 @@
-<h2> Parallel-Stuff </h2>  
+<h2> Parallel-Stuff </h2> 
 <h6> Stuff that uses parallel algorithms that can be executed on GPUs or similar hardware. </h6> 
 
-<h6>Dependencies: Cuda, OpenCV. </h6> 
+<h6> Environment: Ubuntu 16.04 <br/> Dependencies: Cuda, OpenCV. </h6> 
 
 --- 
 
