@@ -12,6 +12,7 @@ This tries to identify the location of trees in a satellite photo by dividing th
 First it filters the green channel by applying a HSV mask: 
 <img src="https://user-images.githubusercontent.com/13679090/39669457-b15140e0-511e-11e8-9e07-f5862c1f5962.jpg" width='600'><br/> 
 <i>Original satellite photo from Google Maps.</i><br/><br/>
+
 Then it checks each pixel in parallel and adds the 'green'-ness to its respective grid cell. If the sum is within a pre-defined range, that cell probably has a tree in it: 
 ``` 
 ----TTTTTTTTTT--T-------
@@ -38,12 +39,11 @@ The adjustable parameters are the cell size (default 80 pixels), 'green' range (
 
 This tries to determine the total roof area available for solar panel installations in a neighbourhood, and takes into account a fire safety regulation that prescribes a walking buffer between the panels and the edge of the roof. <br/>
 
-<img src="https://user-images.githubusercontent.com/13679090/40649981-cd2a9106-6364-11e8-882b-f18b757d407a.jpg" width='600'>
-Roof solar areas highlighted in orange: 
-<img src="https://user-images.githubusercontent.com/13679090/40649982-cd68d2a4-6364-11e8-8f67-c7bfaa1fe549.jpg" width='600'>
-<i>Map images from OpenStreetMaps.</i> 
+<img src="https://user-images.githubusercontent.com/13679090/40649981-cd2a9106-6364-11e8-882b-f18b757d407a.jpg" width='600'><br/>Roof solar areas highlighted in orange: 
+<img src="https://user-images.githubusercontent.com/13679090/40649982-cd68d2a4-6364-11e8-8f67-c7bfaa1fe549.jpg" width='600'><br/><i>Map images from OpenStreetMaps.</i> 
 
 A current limitation is that the algorithm is limited to only 1 roof colour, so if there are spots that are not exactly the prescribed colour, the algorithm would miss them. <br/><br/> 
+
 For angled roofs, the kernel would additionally need to check the gradient of the adjacent cells, that they are continuous and don't exceed regulatory angles. At the time of writing, such semantics aren't available to the OSM dataset yet. 
 
 ---
